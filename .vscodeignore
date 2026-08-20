@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.DS_Store
+test/
+src/
+esbuild.config.js
+tsconfig.json
+.gitignore

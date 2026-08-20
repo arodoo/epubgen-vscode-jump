@@ -1,0 +1,64 @@
+{
+  "name": "epubgen-vscode-jump",
+  "displayName": "Jump to Exact Change",
+  "description": "Saltos al carácter exacto del siguiente/anterior cambio git (token-level).",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:epubgen.jumpToNextExactChange",
+    "onCommand:epubgen.jumpToPreviousExactChange"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "epubgen.jumpToNextExactChange",
+        "title": "Jump to Next Exact Change",
+        "shortTitle": "Next exact change"
+      },
+      {
+        "command": "epubgen.jumpToPreviousExactChange",
+        "title": "Jump to Previous Exact Change",
+        "shortTitle": "Previous exact change"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "alt+m",
+        "command": "epubgen.jumpToNextExactChange"
+      },
+      {
+        "key": "alt+n",
+        "command": "epubgen.jumpToPreviousExactChange"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.config.js",
+    "watch": "node esbuild.config.js --watch",
+    "check-types": "tsc --noEmit -p .",
+    "test": "tsx test/diffCore.test.ts"
+  },
+  "dependencies": {
+    "diff": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/diff": "^5.2.0",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "1.85.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.20.2",
+    "tsx": "^4.23.12",
+    "typescript": "^5.4.0"
+  },
+  "allowScripts": {
+    "esbuild@0.20.2": true
+  }
+}
