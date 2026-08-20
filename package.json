@@ -1,16 +1,38 @@
 {
   "name": "epubgen-vscode-jump",
   "displayName": "Jump to Exact Change",
-  "description": "Saltos al carácter exacto del siguiente/anterior cambio git (token-level).",
+  "description": "Navigate git changes at character precision. Alt+M next, Alt+N previous — jumps to the exact column where the change is, even on long lines.",
   "version": "0.0.1",
   "publisher": "local",
+  "license": "MIT",
+  "author": {
+    "name": "arodoo"
+  },
+  "homepage": "https://github.com/arodoo/epubgen-vscode-jump",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arodoo/epubgen-vscode-jump.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arodoo/epubgen-vscode-jump/issues"
+  },
+  "keywords": [
+    "git",
+    "diff",
+    "navigation",
+    "changes",
+    "next-change",
+    "previous-change",
+    "exact-change",
+    "scm"
+  ],
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
   "engines": {
     "vscode": "^1.85.0"
   },
-  "categories": [
-    "Other"
-  ],
-  "main": "./out/extension.js",
   "activationEvents": [
     "onStartupFinished",
     "onCommand:epubgen.jumpToNextExactChange",
@@ -44,7 +66,8 @@
     "build": "node esbuild.config.js",
     "watch": "node esbuild.config.js --watch",
     "check-types": "tsc --noEmit -p .",
-    "test": "tsx test/diffCore.test.ts"
+    "test": "tsx test/diffCore.test.ts",
+    "package": "vsce package --allow-missing-repository"
   },
   "dependencies": {
     "diff": "^5.2.0"
@@ -53,12 +76,9 @@
     "@types/diff": "^5.2.0",
     "@types/node": "^20.11.0",
     "@types/vscode": "1.85.0",
-    "@vscode/vsce": "^3.9.2",
+    "@vscode/vsce": "^3.2.0",
     "esbuild": "^0.20.2",
     "tsx": "^4.23.12",
     "typescript": "^5.4.0"
-  },
-  "allowScripts": {
-    "esbuild@0.20.2": true
   }
 }
